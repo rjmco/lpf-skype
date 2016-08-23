@@ -5,7 +5,7 @@
 
 Name:           skype
 Version:        4.3.0.37
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Skype Messaging and Telephony Client
 
 License:        Skype End User License Agreement
@@ -16,6 +16,7 @@ Source0:        http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 
 BuildRequires:  desktop-file-utils
 Requires:       hicolor-icon-theme
+Requires:       pulseaudio-libs.i686
 Requires:       %{name}-data = %{version}-%{release}
 # Needed for the welcome screen, not pulled in by dependencies
 Requires:       webkitgtk%{_isa}
@@ -91,6 +92,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/%{name}
 
 %changelog
+* Tue Aug 23 2016 Ricardo Cordeiro <ricardo.cordeiro@tux.com.pt> - 4.3.0.37-3
+- Added pulseaudio-libs.i686 dependency to enable audio. 
+
 * Tue Aug 26 2014 Simone Caronni <negativo17@gmail.com> - 4.3.0.37-2
 - Latency fix no longer required.
 
